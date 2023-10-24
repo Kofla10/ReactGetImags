@@ -9,10 +9,10 @@ const Movie = () => {
 
     //we created array of movies with one name of movie
     const [namesMovies, setNamesMovies] = useState(['park']);
-    console.log(namesMovies);
 
     //we update array with the new value
     const handleAddMovie = (newMovie)=> {
+        if(namesMovies.includes(newMovie)) return;
         setNamesMovies([...namesMovies, newMovie])
     }
 
@@ -26,7 +26,7 @@ const Movie = () => {
             {/* title */}            
             {
                 namesMovies.map(imgs =>{
-                    return <GetImags key={imgs} {...imgs}/>
+                    return <GetImags key={imgs} imgs={imgs}/>
                 })
             }
         </>
